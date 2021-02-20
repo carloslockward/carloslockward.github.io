@@ -4,6 +4,7 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+
 (function () {
   "use strict";
 
@@ -43,6 +44,39 @@
       behavior: 'smooth'
     })
   }
+
+  on('click', '.my-submit', function (e) {
+
+    let theForm = document.forms["theForm"]
+
+    var name = theForm.elements["name"]
+
+    var subject = theForm.elements["subject"]
+    var body = theForm.elements["message"]
+
+    if (name.value != "" && subject.value != "" && body.value != "") {
+
+      var command = `mailto:carlos.lockward@gmail.com?subject=${subject.value}&body=${body.value}`;
+
+      window.open(command);
+
+      theForm.querySelector('.error-message').classList.remove('d-block');
+      theForm.querySelector('.sent-message').classList.add('d-block');
+      //theForm.reset();
+
+    }
+    else {
+      theForm.querySelector('.sent-message').classList.remove('d-block');
+      theForm.querySelector('.error-message').innerHTML = "Please fill out all fields!";
+      theForm.querySelector('.error-message').classList.add('d-block');
+    }
+
+
+
+
+
+
+  })
 
   /**
    * Mobile nav toggle
