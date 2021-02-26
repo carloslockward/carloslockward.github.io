@@ -481,7 +481,7 @@ section .container {
 
 
 .qr_code{
-  max-width: 43%;
+  max-width: 40%;
   max-height: auto;
   text-align: center;
   align-content: center;
